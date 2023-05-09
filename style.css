@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Oswald", sans-serif;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #999;
+    font-size: 125%;
+    line-height: 150%;
+    font-weight: 300;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+h1,
+h2,
+p{
+    margin-bottom: 1em;
+}
+
+/* styling til navigation */
+
+#burger {
+    display: none;
+    justify-content: start;
+    cursor: pointer;
+    order: 3;
+    color: #e5e5e5;
+    font-size: 1em;
+    padding-top: 0;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: #0008;
+    height: 4vh;
+    z-index: 10;
+    padding: 0 4em;
+}
+
+.menu,
+.some {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.menu {
+    justify-content: space-between;
+    width: 60%;
+}
+
+.some {
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.menu li a,
+.some li a {
+    color: #e5e5e5;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Open Sans", sans-serif;
+}
+
+.some i {
+    font-size: 1em;
+    margin-left: 1em;
+}
+
+.menu li a:hover {
+    border-bottom: 4px solid #6c0c0e;
+    color: #ffffff;
+}
+
+/* indstillinger baggrund */
+.bg-logo {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.bg,
+.logo {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+}
+
+.logo {
+    order: 1;
+    max-width: 480px;
+    justify-self: center;
+    margin-top: 8em;
+}
+
+@media screen and (max-width:768px) {
+    /* burger-ikon til tablet og mobil */
+    #burger {
+        display: flex;
+        order: 2;
+    }
+    /* styling når burger har class active */
+    #burger.active {
+        padding-top: 4em;
+        font-size: 1.5em;
+    }
+    /* ændring af nav til tablet- og mobilvisning */
+    nav {
+        padding: 0 1em;
+        line-height: 2em;
+        flex-direction: row-reverse;
+    }
+
+    /* styling når nav har class active */
+    nav.active {
+        flex-direction: column;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: #486340;
+    }
+
+    /* menu med links til intern navigation */
+    .menu {
+        display: none;
+        padding: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        order: 1;
+    }
+
+    .menu li {
+        margin: 1.5em 0;
+        flex-grow: 0;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    /* menu med links til sociale medier */
+    .some {
+        margin: 0;
+        justify-content: flex-end;
+        order: 1;
+        margin-top: 1em;
+    }
+    .some i{
+        margin: 0 0.6em;
+    }
+    nav.active ul li a{
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width:480px) {
+    body {
+        background-image: url(images/fullscreen-bg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .logo {
+        max-width: 320px;
+    }
+
+    .bg {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}
